@@ -1,4 +1,4 @@
-const RichText = (id) => {
+var RichText = (id) => {
   const container = document.getElementById(id);
 
   const input = document.createElement("div");
