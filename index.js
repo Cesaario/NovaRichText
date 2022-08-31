@@ -1,9 +1,8 @@
-var RichText = (id) => {
+var RichText = (id, handleChange, valorDefault) => {
   const container = document.getElementById(id);
 
   const input = document.createElement("div");
-  input.innerHTML =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  input.innerHTML = valorDefault;
   const editor = criarEditor();
 
   input.setAttribute("contenteditable", "true");
@@ -13,6 +12,7 @@ var RichText = (id) => {
   container.appendChild(input);
 
   input.onmouseup = onMouseUp;
+  container.addEventListener("input", onChange);
   editor.onmousedown = (e) => e.preventDefault();
   container.style.position = "relative";
 
@@ -22,14 +22,12 @@ var RichText = (id) => {
       .getRangeAt(0)
       .getBoundingClientRect();
 
-    console.log(editor.offsetTop);
+    const { x: xOffset, y: yOffset } = container.getBoundingClientRect();
 
-    editor.style.top = `${parseInt(y + 20 - container.offsetTop)}px`;
-    editor.style.left = `${parseInt(x - container.offsetLeft)}px`;
+    editor.style.top = `${parseInt(y + 20 - yOffset)}px`;
+    editor.style.left = `${parseInt(x - xOffset)}px`;
 
     editor.hidden = window.getSelection().toString().length === 0;
-
-    console.log(editor);
   }
 
   function criarEditor() {
@@ -59,6 +57,10 @@ var RichText = (id) => {
 
     return editor;
   }
+
+  function onChange() {
+    if (handleChange) handleChange(input.innerHTML);
+  }
 };
 
-window.onload = () => RichText("rich-text");
+window.onload = () => RichText("rich-text", () => {}, "bnanana");
