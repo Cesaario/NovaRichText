@@ -7,6 +7,7 @@
   border: 1px solid gray;
   padding: 8px;
   overflow: auto;
+  font-family: "Segoe UI";
 }
 
 .rich-text:focus {
@@ -34,7 +35,7 @@
   cursor: pointer;
 }
 
-.editor .botaoSeletorTamanho{
+.editor .botaoSeletorTamanho {
   display: flex;
   align-items: center;
   width: 32px;
@@ -51,13 +52,45 @@
   background-color: #bdbdbd;
 }
 
-.editor .menuOpcoesTamanho{
+.editor .menuOpcoesTamanho {
   display: none;
-  width: 150px;
-  height: 200px;
   position: absolute;
   top: 40px;
   border: 1px solid gray;
   border-radius: 4px;
-  background-color: #fafafa;
+  background-color: #fff;
+  flex-direction: column;
+}
+
+.editor .menuOpcoesTamanho .opcaoTamanho {
+  margin: 4px 8px;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  font-family: "Segoe UI";
+}
+
+.editor .menuOpcoesTamanho .opcaoTamanho:hover {
+  background-color: #eee;
+}
+
+.editor .inputCor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.editor .inputCor input {
+  width: 28px;
+  height: 28px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.editor .inputCor i {
+  font-size: 16px;
 }

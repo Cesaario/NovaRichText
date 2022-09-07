@@ -1,6 +1,6 @@
-lista após "-" + espaço
-seletor de tamanho com numero
-cor da fonte
-cor do background
-... colocar um divisor
+seletor de tamanho com numero OK
+lista após "-" + espaço OK MAIS OU MENOS
+cor da fonte OK
+cor do background OK
+... colocar um divisor  OK MAIS OU MENOS
 link
